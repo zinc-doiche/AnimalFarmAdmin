@@ -1,0 +1,12 @@
+td.no_answer>hr {
+    border-bottom: 4px solid gray;
+}
+
+td.answered>hr {
+    border-bottom: 4px solid #4F6DF5;
+}
+
+.column {
+    font-size: 14px;
+    font-weight: bold;
+}

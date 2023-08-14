@@ -1,0 +1,15 @@
+
+#server
+server:
+  port: 10000
+
+#jdbc
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+  #log
+  output:
+    ansi:
+      enabled: always
