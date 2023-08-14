@@ -15,10 +15,10 @@ internal fun useOutputStream(use: (ByteArrayOutputStream, BukkitObjectOutputStre
     }
 }
 
-internal fun useInputStream(byteArray: ByteArray, use: (ByteArrayInputStream, BukkitObjectInputStream) -> Unit) {
+internal fun <T> useInputStream(byteArray: ByteArray, use: (ByteArrayInputStream, BukkitObjectInputStream) -> T): T {
     ByteArrayInputStream(byteArray).use { bs ->
         BukkitObjectInputStream(bs).use { input ->
-            use(bs, input)
+            return use(bs, input)
         }
     }
 }
@@ -32,10 +32,6 @@ internal val ByteArrayOutputStream.encodedItem: String
     get() = Base64.getEncoder().encodeToString(toByteArray())
 
 @Suppress("UNCHECKED_CAST")
-internal fun Base64.Decoder.decodeAsItem(src: String): ItemStack? {
-    var item: ItemStack? = null
-    useInputStream(decode(src)) { bs, input ->
-        item = ItemStack.deserialize(input.readObject() as MutableMap<String, Any>)
-    }
-    return item
+internal fun Base64.Decoder.decodeAsItem(src: String): ItemStack {
+    return useInputStream(decode(src)) { _, input -> ItemStack.deserialize(input.readObject() as MutableMap<String, Any>) }
 }
