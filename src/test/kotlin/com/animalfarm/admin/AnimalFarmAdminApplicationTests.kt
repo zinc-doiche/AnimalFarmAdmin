@@ -1,4 +1,4 @@
-package com.animalfarm.animalfarmadmin
+package com.animalfarm.admin
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

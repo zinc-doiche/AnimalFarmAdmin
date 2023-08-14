@@ -16,12 +16,16 @@ java {
 
 repositories {
     mavenCentral()
+    mavenLocal()
+    maven {
+        url = uri("https://repo.papermc.io/repository/maven-public/")
+    }
 }
 
 dependencies {
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
-    annotationProcessor("org.projectlombok:lombok")
+//    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-web-services")
@@ -29,6 +33,12 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    compileOnly("io.papermc.paper:paper-api:1.19.4-R0.1-SNAPSHOT")
+//    implementation("com.querydsl:querydsl-mongodb")
+//    implementation("com.querydsl:querydsl-apt")
+
+    testCompileOnly("io.papermc.paper:paper-api:1.19.4-R0.1-SNAPSHOT")
+    testAnnotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
@@ -43,3 +53,22 @@ tasks.withType<Test> {
     useJUnitPlatform()
 }
 
+//val querydslGeneratedDir = "$buildDir/generated/querydsl"
+//
+//querydsl {
+//    library = "com.querydsl:querydsl-apt"
+//    springDataMongo = true
+//    querydslSourcesDir = querydslGeneratedDir
+//}
+//
+//sourceSets {
+//    main.get().java.srcDir(querydslGeneratedDir)
+//}
+//
+//configurations {
+//    querydsl.extendsFrom(compileClasspath)
+//}
+//
+//tasks.compileQuerydsl {
+//    options.annotationProcessorPath = configurations.querydsl.get()
+//}
