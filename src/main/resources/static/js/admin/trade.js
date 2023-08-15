@@ -56,6 +56,12 @@ class AdministratorService {
 
             this.page.content.forEach(e => html += this.appender(e));
             $container.html(html);
+
+            $('.history-container tr').each((i, e) => {
+                if(i === 0) return;
+                $(e).on('click', () => location.href = `admin/trade/detail?id=${this.page.content[i - 1].id}`);
+            });
+
             this.setPageButtons();
         });
     }

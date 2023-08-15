@@ -6,4 +6,5 @@ import org.springframework.data.domain.Pageable;
 
 public interface TradeHistoryService {
     Page<TradeHistory> getPage(Pageable pageable, String keyword);
+    TradeHistory getTradeHistory(String id);
 }

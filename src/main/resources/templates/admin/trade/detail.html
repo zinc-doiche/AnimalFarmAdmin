@@ -50,27 +50,27 @@
                     <section class="board-info-box-layout">
                         <div class="board-info-box">
                             <div class="board-info-title-box" style="position: relative">
-                                <div><span class="span-bold">거래 날짜:</span> 2023.08.14 18:57</div>
+                                <div><span class="span-bold">거래 날짜: </span><span th:text="${tradeHistory.tradeDate}"></span></div>
                             </div>
                             <hr>
                             <!-- -->
                             <div class="info-table">
                                 <div class="player_info">
                                     <div class="selection" name="personal">
-                                        <img src="https://mc-heads.net/avatar/005cd92d-cf8a-4267-bfc5-50d3f039d50f/100/nohelm.png" class="player-head" alt="LE_CONTRAIL">
-                                        <span class="player-name">LE_CONTRAIL</span>
+                                        <img th:src="|https://mc-heads.net/avatar/${tradeHistory.requester.uuid}/100/nohelm.png|" class="player-head" alt="LE_CONTRAIL">
+                                        <span class="player-name" th:text="${tradeHistory.requester.name}"></span>
                                     </div>
                                 </div>
                                 <div class="player_info" name="uuid">
                                     <span class="span-bold">UUID :</span>
-                                    <span>005cd92d-cf8a-4267-bfc5-50d3f039d50f</span>
+                                    <span th:text="${tradeHistory.requester.uuid}"></span>
                                 </div>
                                 <div class="player_info">
                                     <span class="span-bold">거래 금액: </span>
-                                    <span>600골드</span>
+                                    <span th:text="|${tradeHistory.requester.money}골드|"></span>
                                 </div>
                                 <div class="player_info" style="margin-top: 20px">
-                                    <div class="selection" name="personal">거래 아이템</div>
+                                    <div class="selection" name="personal">거래 아이템 목록</div>
                                 </div>
                                 <div class="trade_content">
                                     <div class="item-info">
@@ -140,20 +140,20 @@
                             <div class="info-table">
                                 <div class="player_info">
                                     <div class="selection" name="personal">
-                                        <img src="https://mc-heads.net/avatar/7ba76465-c0d9-48be-97bd-5dd07bd26fa7/100/nohelm.png" class="player-head" alt="LE_CONTRAIL">
-                                        <span class="player-name">AxesCode</span>
+                                        <img th:src="|https://mc-heads.net/avatar/${tradeHistory.acceptor.uuid}/100/nohelm.png|" class="player-head" th:alt="${tradeHistory.acceptor.name}">
+                                        <span class="player-name" th:text="${tradeHistory.acceptor.name}"></span>
                                     </div>
                                 </div>
                                 <div class="player_info" name="uuid">
                                     <span class="span-bold">UUID :</span>
-                                    <span>7ba76465-c0d9-48be-97bd-5dd07bd26fa7</span>
+                                    <span th:text="${tradeHistory.acceptor.uuid}"></span>
                                 </div>
                                 <div class="player_info">
                                     <span class="span-bold">거래 금액: </span>
-                                    <span>600골드</span>
+                                    <span th:text="|${tradeHistory.acceptor.money}골드|"></span>
                                 </div>
                                 <div class="player_info" style="margin-top: 20px">
-                                    <div class="selection" name="personal">거래 아이템</div>
+                                    <div class="selection" name="personal">거래 아이템 목록</div>
                                 </div>
                                 <div class="trade_content">
                                     <div class="item-info">
@@ -227,7 +227,12 @@
     </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-<script src="/js/admin/sidemenu.js"></script>
-<script>
+<script th:inline="javascript">
+    let tradeHistory = [[${tradeHistory}]];
+    let requesterItems = [[${requesterItems}]];
+    let acceptorItems = [[${acceptorItems}]];
+    console.log(requesterItems);
+    console.log(acceptorItems);
 </script>
+<script src="/js/admin/sidemenu.js"></script>
 </html>

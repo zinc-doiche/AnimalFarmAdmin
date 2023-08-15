@@ -210,3 +210,7 @@ div#paging-wrap {
 	font-weight: 400;
 	text-align: center;
 }
+
+tr {
+	cursor: pointer;
+}
