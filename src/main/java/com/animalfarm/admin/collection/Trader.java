@@ -13,5 +13,5 @@ public class Trader {
     private String uuid;
     private String name;
     private Long money;
-    private List<String> items;
+    private List<DocumentedItem> items;
 }
