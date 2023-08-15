@@ -37,8 +37,8 @@ public class Streams {
     }
 
     @SuppressWarnings("unchecked")
-    public static ItemStack decodeAsItem(Base64.Decoder decoder, String itemString) {
-        return useInputStream(decoder.decode(itemString),  (arrayInputStream, input) -> {
+    public static ItemStack decodeAsItem(String itemString) {
+        return useInputStream(Base64.getDecoder().decode(itemString),  (arrayInputStream, input) -> {
             try {
                 return ItemStack.deserialize((Map<String, Object>) input.readObject());
             } catch (IOException | ClassNotFoundException e) {
