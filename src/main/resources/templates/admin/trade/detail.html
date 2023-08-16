@@ -73,64 +73,16 @@
                                     <div class="selection" name="personal">거래 아이템 목록</div>
                                 </div>
                                 <div class="trade_content">
-                                    <div class="item-info">
+                                    <div class="item-info" th:each="item : ${tradeHistory.requester.items}">
                                         <div class="item-title">
-                                            <img class="item" src="/image/item/feather.png" alt="item">
-                                            <span class="span-bold item-name">깃털 X 31</span>
+                                            <img class="item" th:src="|/image/item/${item.material}.png|" alt="item">
+                                            <span class="span-bold item-name" th:text="|${item.name} X ${item.amount}|"></span>
                                         </div>
-                                        <div class="item-lore">
-                                            <span class="lore">lore 1</span>
-                                            <span class="lore">lore 2</span>
-                                            <span class="lore">lore 3</span>
-                                        </div>
-                                        <hr>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="item-title">
-                                            <img class="item" src="/image/item/feather.png" alt="item">
-                                            <span class="span-bold item-name">깃털 X 31</span>
-                                        </div>
-                                        <div class="item-lore">
-                                            <span class="lore">lore 1</span>
-                                            <span class="lore">lore 2</span>
-                                            <span class="lore">lore 3</span>
-                                        </div>
-                                        <hr>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="item-title">
-                                            <img class="item" src="/image/item/feather.png" alt="item">
-                                            <span class="span-bold item-name">깃털 X 31</span>
-                                        </div>
-                                        <div class="item-lore">
-                                            <span class="lore">lore 1</span>
-                                            <span class="lore">lore 2</span>
-                                            <span class="lore">lore 3</span>
-                                        </div>
-                                        <hr>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="item-title">
-                                            <img class="item" src="/image/item/feather.png" alt="item">
-                                            <span class="span-bold item-name">깃털 X 31</span>
-                                        </div>
-                                        <div class="item-lore">
-                                            <span class="lore">lore 1</span>
-                                            <span class="lore">lore 2</span>
-                                            <span class="lore">lore 3</span>
-                                        </div>
-                                        <hr>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="item-title">
-                                            <img class="item" src="/image/item/feather.png" alt="item">
-                                            <span class="span-bold item-name">깃털 X 31</span>
-                                        </div>
-                                        <div class="item-lore">
-                                            <span class="lore">lore 1</span>
-                                            <span class="lore">lore 2</span>
-                                            <span class="lore">lore 3</span>
-                                        </div>
+                                        <th:block th:if="${item.lore != null}">
+                                            <div class="item-lore" th:each="line = ${item.lore}">
+                                                <span class="lore" th:text="${line}"></span>
+                                            </div>
+                                        </th:block>
                                         <hr>
                                     </div>
                                 </div>
@@ -156,64 +108,16 @@
                                     <div class="selection" name="personal">거래 아이템 목록</div>
                                 </div>
                                 <div class="trade_content">
-                                    <div class="item-info">
+                                    <div class="item-info" th:each="item : ${tradeHistory.acceptor.items}">
                                         <div class="item-title">
-                                            <img class="item" src="/image/item/feather.png" alt="item">
-                                            <span class="span-bold item-name">깃털 X 31</span>
+                                            <img class="item" th:src="|/image/item/${item.material}.png|" alt="item">
+                                            <span class="span-bold item-name" th:text="|${item.name} X ${item.amount}|"></span>
                                         </div>
-                                        <div class="item-lore">
-                                            <span class="lore">lore 1</span>
-                                            <span class="lore">lore 2</span>
-                                            <span class="lore">lore 3</span>
-                                        </div>
-                                        <hr>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="item-title">
-                                            <img class="item" src="/image/item/feather.png" alt="item">
-                                            <span class="span-bold item-name">깃털 X 31</span>
-                                        </div>
-                                        <div class="item-lore">
-                                            <span class="lore">lore 1</span>
-                                            <span class="lore">lore 2</span>
-                                            <span class="lore">lore 3</span>
-                                        </div>
-                                        <hr>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="item-title">
-                                            <img class="item" src="/image/item/feather.png" alt="item">
-                                            <span class="span-bold item-name">깃털 X 31</span>
-                                        </div>
-                                        <div class="item-lore">
-                                            <span class="lore">lore 1</span>
-                                            <span class="lore">lore 2</span>
-                                            <span class="lore">lore 3</span>
-                                        </div>
-                                        <hr>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="item-title">
-                                            <img class="item" src="/image/item/feather.png" alt="item">
-                                            <span class="span-bold item-name">깃털 X 31</span>
-                                        </div>
-                                        <div class="item-lore">
-                                            <span class="lore">lore 1</span>
-                                            <span class="lore">lore 2</span>
-                                            <span class="lore">lore 3</span>
-                                        </div>
-                                        <hr>
-                                    </div>
-                                    <div class="item-info">
-                                        <div class="item-title">
-                                            <img class="item" src="/image/item/feather.png" alt="item">
-                                            <span class="span-bold item-name">깃털 X 31</span>
-                                        </div>
-                                        <div class="item-lore">
-                                            <span class="lore">lore 1</span>
-                                            <span class="lore">lore 2</span>
-                                            <span class="lore">lore 3</span>
-                                        </div>
+                                        <th:block th:if="${item.lore != null}">
+                                            <div class="item-lore" th:each="line = ${item.lore}">
+                                                <span class="lore" th:text="${line}"></span>
+                                            </div>
+                                        </th:block>
                                         <hr>
                                     </div>
                                 </div>
@@ -229,10 +133,8 @@
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 <script th:inline="javascript">
     let tradeHistory = [[${tradeHistory}]];
-    let requesterItems = [[${requesterItems}]];
-    let acceptorItems = [[${acceptorItems}]];
-    console.log(requesterItems);
-    console.log(acceptorItems);
+    console.log(tradeHistory);
 </script>
 <script src="/js/admin/sidemenu.js"></script>
+<script src="/js/admin/detail.js"></script>
 </html>
