@@ -79,7 +79,7 @@
                                             <span class="span-bold item-name" th:text="|${item.name} X ${item.amount}|"></span>
                                         </div>
                                         <th:block th:if="${item.lore != null}">
-                                            <div class="item-lore" th:each="line = ${item.lore}">
+                                            <div class="item-lore" th:each="line : ${item.lore}">
                                                 <span class="lore" th:text="${line}"></span>
                                             </div>
                                         </th:block>
@@ -114,7 +114,7 @@
                                             <span class="span-bold item-name" th:text="|${item.name} X ${item.amount}|"></span>
                                         </div>
                                         <th:block th:if="${item.lore != null}">
-                                            <div class="item-lore" th:each="line = ${item.lore}">
+                                            <div class="item-lore" th:each="line : ${item.lore}">
                                                 <span class="lore" th:text="${line}"></span>
                                             </div>
                                         </th:block>
